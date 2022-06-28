@@ -5,11 +5,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
 const refs = {
-    startBtn: document.querySelector('[data-start]'),
-    days: document.querySelector('[data-days]'),
-    hours: document.querySelector('[data-hours]'),
-    minutes: document.querySelector('[data-minutes]'),
-    seconds: document.querySelector('[data-seconds]'),
+    startBtn: document.querySelector('button[data-start]'),
+    days: document.querySelector('span[data-days]'),
+    hours: document.querySelector('span[data-hours]'),
+    minutes: document.querySelector('span[data-minutes]'),
+    seconds: document.querySelector('span[data-seconds]'),
 };
 
 refs.startBtn.addEventListener('click', onStartBtnClick);
