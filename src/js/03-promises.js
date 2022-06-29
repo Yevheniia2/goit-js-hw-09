@@ -25,7 +25,7 @@ function handleSubmitClick(event) {
       });
     delay += step;
   }
-  form.reset()
+  refs.form.reset()
 }
 
 function createPromise(position, delay) {
