@@ -22,7 +22,7 @@ const options = {
     onClose(selectedDates) {
     if (selectedDates[0].getTime() - Date.now() <= 0) {
         Notify.failure('Please choose a date in the future');
-        refs.startBtn.setAttribute('disabled', 'true');
+        refs.startBtn.setAttribute('disabled');
     } else {
         refs.startBtn.removeAttribute('disabled');
     }
@@ -32,9 +32,15 @@ const options = {
 const fp = flatpickr(refs.dateInput, options);
 
 function onStartBtnClick() {
+    refs.startBtn.disabled = true;
+    refs.dateInput.disabled = true;
+    onCount();
+}
+
+function onCount {
     countTime = setInterval(() => {
-        const pick = fp.selectedDates[0] - Date.now();
         setTime();
+        const pick = fp.selectedDates[0] - Date.now();
         if(pick < 1000) {
             clearInterval(countTime);
             Notify.success('Timer countdown finished')}
