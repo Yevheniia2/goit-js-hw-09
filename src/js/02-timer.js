@@ -1,10 +1,10 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
 const refs = {
+    dateInput: document.querySelector('#datetime-picker'),
     startBtn: document.querySelector('button[data-start]'),
     days: document.querySelector('span[data-days]'),
     hours: document.querySelector('span[data-hours]'),
@@ -29,7 +29,7 @@ const options = {
     },
 };
 
-const fp = flatpickr('input#datetime-picker', options);
+const fp = flatpickr(refs.dateInput, options);
 
 function onStartBtnClick() {
     countTime = setInterval(() => {
