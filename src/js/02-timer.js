@@ -32,7 +32,13 @@ const options = {
 const fp = flatpickr('input#datetime-picker', options);
 
 function onStartBtnClick() {
-    setInterval(setTime, 1000);
+    countTime = setInterval(() => {
+        const pick = fp.selectedDates[0] - Date.now();
+        setTime();
+        if(pick < 1000) {
+            clearInterval(countTime);
+            Notify.success('Timer countdown finished')}
+        }, 1000);
 }
 
 function setTime() {
