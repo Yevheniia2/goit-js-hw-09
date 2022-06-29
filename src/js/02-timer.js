@@ -37,7 +37,7 @@ function onStartBtnClick() {
     onCount();
 }
 
-function onCount {
+function onCount() {
     countTime = setInterval(() => {
         setTime();
         const pick = fp.selectedDates[0] - Date.now();
