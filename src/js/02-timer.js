@@ -29,7 +29,7 @@ const options = {
     },
 };
 
-const fp = flatpickr(refs.dateInput, options);
+const flp = flatpickr(refs.dateInput, options);
 
 function onStartBtnClick() {
     refs.startBtn.disabled = true;
@@ -40,7 +40,7 @@ function onStartBtnClick() {
 function onCount() {
     countTime = setInterval(() => {
         setTime();
-        const pick = fp.selectedDates[0] - Date.now();
+        const pick = flp.selectedDates[0] - Date.now();
         if(pick < 1000) {
             clearInterval(countTime);
             Notify.success('Timer countdown finished')}
@@ -48,7 +48,7 @@ function onCount() {
 }
 
 function setTime() {
-    const { days, hours, minutes, seconds } = convertMs(fp.selectedDates[0].getTime() - Date.now());
+    const { days, hours, minutes, seconds } = convertMs(flp.selectedDates[0].getTime() - Date.now());
     refs.days.textContent = addLeadingZero(days);
     refs.hours.textContent = addLeadingZero(hours);
     refs.minutes.textContent = addLeadingZero(minutes);
