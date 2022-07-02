@@ -35,6 +35,7 @@ const flp = flatpickr(refs.dateInput, options);
 function onStartBtnClick() {
     refs.startBtn.disabled = true;
     refs.dateInput.disabled = true;
+    
     onCount();
 }
 
