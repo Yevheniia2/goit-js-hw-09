@@ -23,9 +23,9 @@ const options = {
     onClose(selectedDates) {
     if (selectedDates[0].getTime() - Date.now() <= 0) {
         Notify.failure('Please choose a date in the future');
-        refs.startBtn.setAttribute('disabled');
+        refs.startBtn.disabled = true;
     } else {
-        refs.startBtn.removeAttribute('disabled');
+        refs.startBtn.disabled = false;
     }
     },
 };
@@ -33,8 +33,8 @@ const options = {
 const flp = flatpickr(refs.dateInput, options);
 
 function onStartBtnClick() {
-    refs.startBtn.setAttribute('disabled');
-    refs.dateInput.setAttribute('disabled');
+    refs.startBtn.disabled = true;
+    refs.dateInput.disabled = true;
     onCount();
 }
 
