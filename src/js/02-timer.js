@@ -13,6 +13,7 @@ const refs = {
 };
 
 refs.startBtn.addEventListener('click', onStartBtnClick);
+let countTime = null;
 
 const options = {
     enableTime: true,
@@ -32,19 +33,21 @@ const options = {
 const flp = flatpickr(refs.dateInput, options);
 
 function onStartBtnClick() {
-    refs.startBtn.disabled = true;
-    refs.dateInput.disabled = true;
+    refs.startBtn.setAttribute('disabled');
+    refs.dateInput.setAttribute('disabled');
     onCount();
 }
 
 function onCount() {
     countTime = setInterval(() => {
-        setTime();
         const pick = flp.selectedDates[0] - Date.now();
+        setTime();
+        
         if(pick < 1000) {
             clearInterval(countTime);
-            Notify.success('Timer countdown finished')}
-        }, 1000);
+            Notify.success('Timer countdown finished')
+        }
+    }, 1000);
 }
 
 function setTime() {
