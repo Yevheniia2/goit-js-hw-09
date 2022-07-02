@@ -43,7 +43,7 @@ function onCount() {
         const pick = flp.selectedDates[0] - Date.now();
         const conTime = convertMs(timePicker.selectedDates[0] - Date.now());
         setTime(conTime);
-        
+        console.log(pick);
         if(pick < 1000) {
             clearInterval(countTime);
             Notify.success('Timer countdown finished')
