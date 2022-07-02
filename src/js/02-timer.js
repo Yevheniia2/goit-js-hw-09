@@ -41,7 +41,8 @@ function onStartBtnClick() {
 function onCount() {
     countTime = setInterval(() => {
         const pick = flp.selectedDates[0] - Date.now();
-        setTime();
+        const conTime = convertMs(timePicker.selectedDates[0] - Date.now());
+        setTime(conTime);
         
         if(pick < 1000) {
             clearInterval(countTime);
@@ -50,8 +51,7 @@ function onCount() {
     }, 1000);
 }
 
-function setTime() {
-    const { days, hours, minutes, seconds } = convertMs(flp.selectedDates[0].getTime() - Date.now());
+function setTime({ days, hours, minutes, seconds }) {
     refs.days.textContent = addLeadingZero(days);
     refs.hours.textContent = addLeadingZero(hours);
     refs.minutes.textContent = addLeadingZero(minutes);
@@ -59,7 +59,7 @@ function setTime() {
 }
 
 function addLeadingZero(value) {
-    return String(value).padStart(2, '0');
+    return String(value).padStart(2, "0");
 }
 
 function convertMs(ms) {
